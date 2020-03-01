@@ -1,0 +1,15 @@
+filebeat.inputs:
+- type: log
+  paths:
+    - /tmp/maid-account-manager.log
+  
+output:
+  logstash.hosts: ["host.docker.internal:5044"]
+
+# Write Filebeat own logs only to file to avoid catching them with itself in docker log files
+logging.to_files: true
+logging.to_syslog: false
+
+# X-pack optional module
+xpack.monitoring.enabled: true
+xpack.monitoring.elasticsearch.hosts: ["host.docker.internal:9200"]
