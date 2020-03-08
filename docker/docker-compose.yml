@@ -57,21 +57,21 @@ services:
     depends_on:
       - elasticsearch
 
-  filebeat:
-    build: ../filebeat
-    hostname: filebeat
-    container_name: filebeat
-    networks:
-      - logmonnet
-    volumes:
-      - "/var/lib/docker/containers:/var/lib/docker/containers"
-      - "/var/run/docker.sock:/var/run/docker.sock"
-    links:
-      - maid-account-manager
-      - logstash
-    depends_on:
-      - maid-account-manager
-      - logstash
+  # filebeat:
+  #   build: ../filebeat
+  #   hostname: filebeat
+  #   container_name: filebeat
+  #   networks:
+  #     - logmonnet
+  #   volumes:
+  #     - "/var/lib/docker/containers:/var/lib/docker/containers"
+  #     - "/var/run/docker.sock:/var/run/docker.sock"
+  #   links:
+  #     - maid-account-manager
+  #     - logstash
+  #   depends_on:
+  #     - maid-account-manager
+  #     - logstash
 
 networks:
   logmonnet:

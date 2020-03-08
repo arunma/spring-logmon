@@ -29,8 +29,8 @@ public class MaidAccountManagerController {
     @ResponseStatus(HttpStatus.OK)
     public MaidUsageBill getBill() {
         double random = new Random().nextDouble();
-        if (random<0.4){
-            log.error("Random Exception for value "+ random, new RuntimeException ("Random Exception is thrown @ " + new Date()));
+        if (random < 0.4) {
+            log.error("Random Exception for value " + random, new RuntimeException("Random Exception is thrown @ " + new Date()));
         }
         String randomMonth = Month.of(ThreadLocalRandom.current().nextInt(1, 12)).getDisplayName(TextStyle.FULL, Locale.US);
         String randomYear = String.valueOf(ThreadLocalRandom.current().nextInt(2000, 2020));
