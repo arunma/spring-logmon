@@ -23,8 +23,8 @@ services:
     ports:
       - "9200:9200"
       - "9300:9300"
-    volumes:
-      - /tmp/data:/usr/share/elasticsearch/data
+    #volumes:
+    #  - /tmp/data:/usr/share/elasticsearch/data
 
   kibana:
     image: docker.elastic.co/kibana/kibana:7.6.0
