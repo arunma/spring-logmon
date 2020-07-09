@@ -2,11 +2,9 @@ version: '3.7'
 
 services:
   maid-account-manager:
+    image: arunma/maid-account-manager:2.0
     hostname: maid-account-manager
     container_name: maid-account-manager
-    build: ../maid-account-manager
-    labels:
-      filebeat_enable:
     networks:
       - logmonnet
     ports:
@@ -23,8 +21,6 @@ services:
     ports:
       - "9200:9200"
       - "9300:9300"
-    #volumes:
-    #  - /tmp/data:/usr/share/elasticsearch/data
 
   kibana:
     image: docker.elastic.co/kibana/kibana:7.6.0
@@ -56,22 +52,6 @@ services:
       - elasticsearch
     depends_on:
       - elasticsearch
-
-  # filebeat:
-  #   build: ../filebeat
-  #   hostname: filebeat
-  #   container_name: filebeat
-  #   networks:
-  #     - logmonnet
-  #   volumes:
-  #     - "/var/lib/docker/containers:/var/lib/docker/containers"
-  #     - "/var/run/docker.sock:/var/run/docker.sock"
-  #   links:
-  #     - maid-account-manager
-  #     - logstash
-  #   depends_on:
-  #     - maid-account-manager
-  #     - logstash
 
 networks:
   logmonnet:
